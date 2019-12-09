@@ -1,9 +1,7 @@
-from flask import Flask, render_template, url_for, flash, redirect
-from forms import RegistrationForm, LoginForm
-
-app = Flask(__name__)
-
-app.config['SECRET_KEY'] = 'e3f6db2fe4ec99f04db9b1c1ab0cc55f'
+from flask import render_template, url_for, flash, redirect
+from flaskblog import app
+from flaskblog.forms import RegistrationForm, LoginForm
+from flaskblog.models import User, Post
 
 posts = [{
     'author': 'Tahmid Tanzim Lupin',
@@ -25,7 +23,7 @@ def dashboard():
 
 
 @app.route('/about')
-def about():
+def about_us():
     return render_template('about.html')
 
 
@@ -45,7 +43,3 @@ def signin():
         flash(f'Login success', 'success')
         return redirect(url_for('dashboard'))
     return render_template('login.html', title='Login', form=form)
-
-
-if __name__ == "__main__":
-    app.run(debug=True)
