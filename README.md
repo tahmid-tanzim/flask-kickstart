@@ -6,6 +6,7 @@
 * pip3 install flask-sqlalchemy
 * pip3 install flask-bcrypt
 * pip3 install flask-login
+* pip3 install Pillow
 
 import secrets
 secrets.token_hex(16)
